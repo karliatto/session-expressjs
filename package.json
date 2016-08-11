@@ -1,0 +1,29 @@
+{
+  "name": "session-expressjs",
+  "version": "1.0.0",
+  "description": "Simple website with session managment, login and sign up",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karliatto/session-expressjs.git"
+  },
+  "author": "Carlos Garcia Ortiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karliatto/session-expressjs/issues"
+  },
+  "homepage": "https://github.com/karliatto/session-expressjs#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express-mysql-session": "^1.1.1",
+    "express-session": "^1.14.0",
+    "knex": "^0.11.10",
+    "mysql": "^2.11.1",
+    "password-hash": "^1.2.2"
+  }
+}
