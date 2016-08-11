@@ -29,7 +29,7 @@ node index.js
 Open your browser and navigate to the following URL:
 [localhost:3000/registro](http://localhost:3000/registro)
 
-* Register with user and passwor
+* Register with user and password
 * Login
 * To logout go to [localhost:3000/logout](http://localhost:3000/registro)
 
