@@ -4,3 +4,4 @@ Simple website with session managment, login and sign up
 * sign up
 * login
 * logout
+* using hash password
