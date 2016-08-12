@@ -11,6 +11,7 @@ Simple website with session managment, login and sign up
 * [Nodejs](https://nodejs.org/en/)
 * [MySQL](https://www.mysql.com/) 
 * [ExprssJS](https://www.expressjs.com/) 
+* [knexJS](https://www.knexjs.org/) 
 
 ## Getting Started
 * Create a database named __learn_web_app__
