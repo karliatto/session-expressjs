@@ -108,7 +108,7 @@ app.post('/registro', function(req, res) {
     bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
         // Store hash in your password DB.
         var newRegistro = {
-		password: pass,
+		password: hash,
 		username: user,
 		}
 
@@ -144,8 +144,8 @@ app.post('/login', function(req, res) {
   				res.send('Wrong username!');
 
   			}
-  			var pass = result[0].password;
-  			if (passwordHash.verify(passwordReq, pass)){
+  			var hash = result[0].password;
+  			if (bcrypt.compareSync(passwordReq, hash)){
   				// Correct username+password.
 				// Generate a new session and store their user information in the session data.
 				req.session.regenerate(function() {

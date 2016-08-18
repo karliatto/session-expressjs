@@ -17,6 +17,15 @@ Simple website with session managment, login and sign up
 
 Using phpMyAdmin (or some other MySQL admin tool):
 * Create a database named __session_expressjs__
+* Create a table in the database named __users__ with the following structure:
+```sql
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(11) NOT NULL,
+  `password` varchar(72) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB ;
+```
 * Add a user to the __session_expressjs__ database with the same name. Sample SQL statement to do this:
 ```sql
 CREATE USER 'session_expressjs'@'localhost' IDENTIFIED BY  'password';
@@ -25,6 +34,7 @@ GRANT USAGE ON * . * TO  'session_expressjs'@'localhost' IDENTIFIED BY  'passwor
 
 GRANT ALL PRIVILEGES ON  `session_expressjs` . * TO  'session_expressjs'@'localhost';
 ```
+* A table with session will be created automatically by 'express-session'
 
 Clone this repository to your local environment by using the following command from a terminal window:
 ```
