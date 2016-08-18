@@ -14,8 +14,27 @@ Simple website with session managment, login and sign up
 * [knexJS](https://www.knexjs.org/) 
 
 ## Getting Started
-* Create a database named __learn_web_app__
 
+Using phpMyAdmin (or some other MySQL admin tool):
+* Create a database named __session_expressjs__
+* Add a user to the __session_expressjs__ database with the same name. Sample SQL statement to do this:
+```sql
+CREATE USER 'session_expressjs'@'localhost' IDENTIFIED BY  'password';
+
+GRANT USAGE ON * . * TO  'session_expressjs'@'localhost' IDENTIFIED BY  'password' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+
+GRANT ALL PRIVILEGES ON  `session_expressjs` . * TO  'session_expressjs'@'localhost';
+```
+
+Clone this repository to your local environment by using the following command from a terminal window:
+```
+git clone https://github.com/karliatto/session-expressjs.git
+```
+
+Change into the directory that was just created:
+```
+cd session-expressjs
+```
 
 Install node modules:
 ```

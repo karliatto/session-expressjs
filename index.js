@@ -1,9 +1,9 @@
 var databaseOptions = {
 	host: '127.0.0.1',
 	port: 3306,
-	user: 'learn_web_appp',
+	user: 'session_expressjs',
 	password: 'password',
-	database: 'learn_web_app'
+	database: 'session_expressjs'
 };
 
 var knex = require('knex')({
@@ -16,7 +16,13 @@ var express = require('express');
 var exphbs  = require('express-handlebars');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
-var passwordHash = require('password-hash');
+// bcrypt
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+// bcrypt
+
+
+
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -95,13 +101,16 @@ app.get('/registro', function(req, res) {
 
 app.post('/registro', function(req, res) {
 
-	var passHash = passwordHash.generate(req.body.password);
+	var myPlaintextPassword = req.body.password;
 	var user = req.body.username;
 
-	var newRegistro = {
-		password: passHash,
+	bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+        // Store hash in your password DB.
+        var newRegistro = {
+		password: pass,
 		username: user,
-	}
+		}
 
 
 	knex('users').insert(newRegistro).then(function(result) {
@@ -109,6 +118,10 @@ app.post('/registro', function(req, res) {
 	}).catch(function(error) {
 		console.log(error);
 	});
+    });
+}); // bcrypt
+
+	
 });
 
 
